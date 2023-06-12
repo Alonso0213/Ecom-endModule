@@ -100,3 +100,6 @@ color: white;
     justify-content: center;
     text-decoration: underline;
   }
+  #content img{
+    height: 10rem;
+  }
