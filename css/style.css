@@ -91,3 +91,12 @@ color: white;
     color: black;
     transition: 0.3s;
   }
+  .input-t{
+    border: solid;
+    border-radius: 2rem;
+  }
+  .admin{
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+  }
