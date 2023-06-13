@@ -8,26 +8,43 @@ let content=[
        
     },
     { 
-        no:"2",
+      no:"2",
+      Name:"Spider-Man Miles Morales",
+      Price:"R1 259.00",
+      description:"Spider-Man Miles Morales For Ps5",
+      img:"https://www.popsci.com/uploads/2021/07/21/sony-marvels-spider-man-best-ps5-games.jpg?auto=webp",
+     
+  },
+  { 
+    no:"3",
+    Name:"God of War Ragnarok (Lauch Edition)",
+    Price:"R999.00",
+    description:"God of War Ragnarok (Lauch Edition) for Ps5",
+    img:"https://azcd.harveynorman.com.au/media/catalog/product/cache/21/image/992x558/9df78eab33525d08d6e5fb8d27136e95/p/s/ps5_gowr_ste_pksht_ft_au_rgb_220614.png",
+   
+},
+    
+    { 
+        no:"4",
         Name:"Play station 4 Pro",
         Price:"R5 899,00",
-        description:"",
+        description:"Main processor. Single-chip custom processor. CPU : x86-64 AMD “Jaguar”, 8 cores <br>Memory. GDDR5 8GB <br> Storage size* 500GB, 1TB. <br> External dimensions. Approx. 265×39×288 mm (width × height × length) <br> BD/ DVD drive. (read only) BD × 6 CAV",
         img:"https://cdn.images.express.co.uk/img/dynamic/143/590x/PS4-Pro-officially-announced-Sony-confirms-PS4-NEO-release-date-and-price-708306.jpg",
        
     },
     { 
-        no:"3",
+        no:"5",
         Name:"Call of Duty MW",
-        Price:"R9. 8-million",
-        description:"dncjnvjlvnljnvlsjd",
+        Price:"R740.00",
+        description:"Call of Duty for Ps4",
         img:"https://media.gamestop.com/i/gamestop/11206901-11206900?$plp-tile3x$",
        
     },
     { 
-        no:"4",
+        no:"6",
         Name:"Mortal Kombat 11",
-        Price:"R9. 8-million",
-        description:"dncjnvjlvnljnvlsjd",
+        Price:"R389.00",
+        description:"Mortal Kombat 11 for Ps4",
         img:"https://m.media-amazon.com/images/I/71qwExpwFkL._AC_UF1000,1000_QL80_.jpg",
        
     }
@@ -53,15 +70,28 @@ content.forEach(content => {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit content</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        
 
-..............
-
-      </div>
+      <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    </div>
+    <div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">Price</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">Product img</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+</div>
+</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
