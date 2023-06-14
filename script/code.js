@@ -77,6 +77,28 @@ content.forEach(content => {
    
   
 `});
-
 localStorage.setItem("content",JSON.stringify(content));
+
+let display = document.querySelector('#list');
+function mfisher(){
+  display.innerHTML = "";
+  products.forEach(content => {
+  //  console.log(displayElement); 
+  display.innerHTML+=`
+  <div class="col-3">
+  <div class="card"><div class="img">
+    <img src=" ${content.img}" class="card-img-top" alt="..."  >
+   </div>
+    <div class="card-body">
+      <h5 class="card-title">${content.Name}</h5>
+      <p class="card-text">${content.Price}</p>
+      <p class="card-text">${content.description}</p>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Add to cart
+    </button>
+    </div>
+  </div>
+</div>`
+})}
+mfisher()
 

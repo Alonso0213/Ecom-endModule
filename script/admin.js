@@ -30,24 +30,24 @@ function mfisher(){
 
       <div class="input-group mb-3">
       <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
-      <input type="text" id="name${content.id}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="name${content.id}">
     </div>
     <div class="input-group mb-3">
   <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
-  <input type="text" id="description${content.id}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <input type="text"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="description${content.id}">
 </div>
 <div class="input-group mb-3">
   <span class="input-group-text" id="inputGroup-sizing-default">Price</span>
-  <input type="text" id="price${content.id}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <input type="text"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="price${content.id}">
 </div>
 <div class="input-group mb-3">
   <span class="input-group-text" id="inputGroup-sizing-default">Product img</span>
-  <input type="text" id="img${content.id}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <input type="text"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="img${content.id}">
 </div>
 </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick='new EditProduct(${JSON.stringify(content)})'>Save changes</button>
+        <button type="button" class="btn btn-primary" onclick='new EditProduct(${JSON.stringify(content)})id="update" onclick="AddData()"  '>Save changes</button>
       </div>
     </div>
   </div>
@@ -63,45 +63,12 @@ function mfisher(){
 }
 mfisher()
 
-addBtn.addEventListener('click', addItem);
-
-function addItem(){
-    // event.preventDefault();
-    if(products.value == ''){
-        alert('Input is Empty!')
-    } else {
-      products.push({
-            id: tempID,
-            name: productInput.value,
-            completed: false,
-            date: new Date()
-        });
-        tempID++;
-        productInput.value = '';
-        localStorage.setItem('content', JSON.stringify(content));
-        
-    }
-}
-
-  
-  function deletebtn() {
-    products = products.filter(item => {
-        return item.id !== id
-    })
-    // update localStorage
-    localStorage.setItem('content', JSON.stringify(products))
-    // Show items
-    // loadData(products)
-}
-
-
-
 function EditProduct(item) {
   this.id= item.id;
-  this.Name = document.querySelector(`#name${item.id}`).value;
-  this.description = document.querySelector(`#description${item.id}`).value;
-  this.Price = document.querySelector(`#price${item.id}`).value;
-  this.img = document.querySelector(`#img${item.id}`).value;
+  this.Name = document.querySelector("#name${item.id}").value;
+  this.description = document.querySelector("#description${item.id}").value;
+  this.Price = document.querySelector("#price${item.id}").value;
+  this.img = document.querySelector("#img${item.id}").value;
 
   let index = products.findIndex( p=> {
     p.id == item.id;
@@ -118,3 +85,102 @@ function EditProduct(item) {
   
 }
 mfisher()
+
+
+
+
+
+
+
+
+function addData() {
+  let Name = document.querySelector(Name).value;
+  let description = document.querySelector(description).value;
+  let Price = document.querySelector(Price).value;
+  let img = document.querySelector(img).value;
+  
+  let content;
+  if (localStorage.getItem("content")==null) {
+    content =[];
+  }
+  else{
+    content = JSON.parse(localStorage.getItem("content"))
+  }
+  
+  content.push({
+    Name : Name,
+    description: description,
+    Price: Price,
+    img: img,
+
+  })
+  localStorage.setItem("content", JSON.stringify(content))
+  addData()
+  document.getElementById("#name${item.id}").value;
+  document.getElementById("#description${item.id}").value;
+  document.getElementById("#price${item.id}").value;
+  document.getElementById("#img${item.id}").value;
+
+}
+
+function deleteItems(index) {
+  let content;
+  if (localStorage.getItem("content")==null) {
+    content =[];
+  }
+  else{
+    content = JSON.parse(localStorage.getItem("content"))
+  }
+
+  content.splice(index, 1);
+  localStorage.setItem("content", JSON.stringify(content))
+  addData()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// addBtn.addEventListener('click', addItem);
+
+// function addItem(){
+//     // event.preventDefault();
+//     if(products.value == ''){
+//         alert('Input is Empty!')
+//     } else {
+//       products.push({
+//             id: tempID,
+//             name: productInput.value,
+//             completed: false,
+//             date: new Date()
+//         });
+//         tempID++;
+//         productInput.value = '';
+//         localStorage.setItem('content', JSON.stringify(content));
+        
+//     }
+// }
+
+  
+//   function deletebtn() {
+//     products = products.filter(item => {
+//         return item.id !== id
+//     })
+//     // update localStorage
+//     localStorage.setItem('content', JSON.stringify(products))
+//     // Show items
+//     // loadData(products)
+// }
