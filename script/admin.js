@@ -1,6 +1,6 @@
-let products = JSON.parse(localStorage.getItem('content'))||[];
+let products = JSON.parse(localStorage.getItem('content'));
 const displayElement = document.querySelector('#content');
-// For add new product
+// For add new product||[]
 
 function mfisher(){
   displayElement.innerHTML = "";
@@ -10,13 +10,13 @@ function mfisher(){
 <td>${item.id}  </td>
 <td> ${item.Name} </td>
 <td> ${item.description} </td>
-<td> ${item.Price} </td>
+<td>R${item.Price} </td>
 <td><img src="${item.img}"></td>
 <td><!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Edit
 </button>
-<button type="button" class="btn btn-primary" id="remove-item" onclick='deleteItems(${JSON.stringify(i)})'>Delete</button>
+<button class="btn btn-primary" id="remove-item" onclick='deleteItems(${JSON.stringify(i)})'>Delete</button>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -76,7 +76,7 @@ function EditProduct(item) {
   // Update
   content[index] = Object.assign({}, this)
   localStorage.setItem('content',JSON.stringify(content));
-  mfisher();
+  // mfisher();
   
   // localstorage
   // call my mfisher()
@@ -84,18 +84,11 @@ function EditProduct(item) {
 }
 mfisher()
 
-
-
-
-
-
-
-
 function addData() {
   let Name = document.querySelector('#productName');
-let description = document.querySelector('#productDescription');
-let Price = document.querySelector('#productPrice');
-let img = document.querySelector('#productImage');
+  let description = document.querySelector('#productDescription');
+  let Price = document.querySelector('#productPrice');
+  let img = document.querySelector('#productImage');
     products.push({
     Name : Name.value,
     description: description.value,
@@ -108,11 +101,10 @@ let img = document.querySelector('#productImage');
 
 }
 
-
 function deleteItems(index) {
   products.splice(index, 1);
   localStorage.setItem("content", JSON.stringify(products))
-  addData()
+  deleteItems()
 }
 
 

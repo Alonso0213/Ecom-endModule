@@ -6,7 +6,7 @@ let products = JSON.parse(localStorage.getItem("content"))
     { 
         id: 1,
         Name:"Play Staion 5",
-        Price:"R12999,00",
+        Price:12999.0,
         description:"CPU: 3.5GHz, 8-core AMD Zen 2 <br> GPU: 10.3 teraflop RDNA 2 GPU <br>RAM: 16GB GDDR6.<br>Storage: Custom 825GB SSD.<br>Expansion: NVMe M.2 SSD slot<br>Disc drive: 4K Blu-ray player.<br>Size: 15.4 x 10.2 x 4.1 inches",
         img:"https://i.postimg.cc/rwBPNFSj/20001549.jpg",
        
@@ -14,7 +14,7 @@ let products = JSON.parse(localStorage.getItem("content"))
     { 
       id: 2,
       Name:"Spider-Man Miles Morales",
-      Price:"R1 259.00",
+      Price:1259.00,
       description:"Spider-Man Miles Morales For Ps5",
       img:"https://i.postimg.cc/Y0rVLn1w/sony-marvels-spider-man-best-ps5-games.webp",
      
@@ -22,7 +22,7 @@ let products = JSON.parse(localStorage.getItem("content"))
   { 
     id: 3,
     Name:"God of War Ragnarok ",
-    Price:"R999.00",
+    Price:999.00,
     description:"God of War Ragnarok (Lauch Edition) for Ps5",
     img:"https://i.postimg.cc/BZpRf30Z/ps5-gowr-ste-pksht-ft-au-rgb-220614.png"
     ,
@@ -32,7 +32,7 @@ let products = JSON.parse(localStorage.getItem("content"))
     { 
         id: 4,
         Name:"Play station 4 Pro",
-        Price:"R5 899,00",
+        Price:5899.00,
         description:"Main processor. Single-chip custom processor. CPU : x86-64 AMD “Jaguar”, 8 cores <br>Memory. GDDR5 8GB Storage size* 500GB, 1TB. <br>BD/ DVD drive. (read only) BD × 6 CAV",
         img:"https://i.postimg.cc/NM7SMq24/PS4-Pro-officially-announced-Sony-confirms-PS4-NEO-release-date-and-price-708306.jpg",
        
@@ -40,7 +40,7 @@ let products = JSON.parse(localStorage.getItem("content"))
     { 
         id: 5,
         Name:"Call of Duty MW",
-        Price:"R740.00",
+        Price:740.00,
         description:"Call of Duty for Ps4",
         img:"https://i.postimg.cc/0jV4YYfK/11206901-11206900.jpg",
        
@@ -48,7 +48,7 @@ let products = JSON.parse(localStorage.getItem("content"))
     { 
         id: 6,
         Name:"Mortal Kombat 11",
-        Price:"R389.00",
+        Price:389.00,
         description:"Mortal Kombat 11 for Ps4",
         img:"https://i.postimg.cc/pL4gcBtD/71qw-Expw-Fk-L-AC-UF1000-1000-QL80.jpg",
        
@@ -56,7 +56,7 @@ let products = JSON.parse(localStorage.getItem("content"))
     { 
       id: 7,
       Name:"Mobius Headset",
-      Price:"R4 999.00",
+      Price:4999.00,
       description:"Mobius is powered by Audeze Planar Magnetic drivers, internationally acclaimed for their superior sound quality. Experience a level of depth and realism in your game audio that no other video game headphones can even hope to match",
       img:"https://i.postimg.cc/JzHXZjcy/audeze-mobius-headset.jpg",
      
@@ -64,7 +64,7 @@ let products = JSON.parse(localStorage.getItem("content"))
   { 
     id: 8,
     Name:"Maxwell Gaming Headset",
-    Price:"R7 999.00",
+    Price:7999.00,
     description:"Mortal Kombat 11 for Ps4",
     img:"https://i.postimg.cc/YqY5Ds3M/xbox-audeze-gaming-headset.jpg",
    
@@ -72,7 +72,7 @@ let products = JSON.parse(localStorage.getItem("content"))
 { 
   id: 9,
   Name:"Xbox series S 512GB",
-  Price:"R6 999.00",
+  Price:6999.00,
   description:"",
   img:"https://i.postimg.cc/pLN2pj0X/series-s-gilded-hunter.jpg",
  
@@ -80,7 +80,7 @@ let products = JSON.parse(localStorage.getItem("content"))
 { 
   id: 10,
   Name:"Starfield(XBS)",
-  Price:"R1 399.00",
+  Price:1399.00,
   description:"Mortal Kombat 11 for Ps4",
   img:"https://i.postimg.cc/3RWRgT2K/xbs-starfield-tbc-pack.jpg",
  
@@ -101,7 +101,7 @@ function displayProduct() {
         <p class="card-text">${item.description}</p>
         
       </div>
-      <p class="card-text">${item.Price}</p>
+      <p class="card-text">R ${item.Price}</p>
        <button type="button" class="btn btn-primary" id="save" >Buy</button>
     </div>
     `});
@@ -109,8 +109,18 @@ function displayProduct() {
     // location.reload()
   }
 }
-
 displayProduct()
+
+
+
+
+
+
+
+
+
+
+
 // let display = document.querySelector('#list');
 // function mfisher(){
 //   display.innerHTML = "";

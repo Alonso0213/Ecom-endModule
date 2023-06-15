@@ -1,0 +1,1 @@
+let checkouts = JSON.parse(localStorage.getItem('content'));
