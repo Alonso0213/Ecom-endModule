@@ -8,7 +8,7 @@ let products = JSON.parse(localStorage.getItem("content"))
         Name:"Play Staion 5",
         Price:"R12999,00",
         description:"CPU: 3.5GHz, 8-core AMD Zen 2 <br> GPU: 10.3 teraflop RDNA 2 GPU <br>RAM: 16GB GDDR6.<br>Storage: Custom 825GB SSD.<br>Expansion: NVMe M.2 SSD slot<br>Disc drive: 4K Blu-ray player.<br>Size: 15.4 x 10.2 x 4.1 inches",
-        img:"https://i.postimg.cc/0jV4YYfK/11206901-11206900.jpg",
+        img:"https://i.postimg.cc/rwBPNFSj/20001549.jpg",
        
     },
     { 
@@ -16,7 +16,7 @@ let products = JSON.parse(localStorage.getItem("content"))
       Name:"Spider-Man Miles Morales",
       Price:"R1 259.00",
       description:"Spider-Man Miles Morales For Ps5",
-      img:"https://i.postimg.cc/rwBPNFSj/20001549.jpg",
+      img:"https://i.postimg.cc/Y0rVLn1w/sony-marvels-spider-man-best-ps5-games.webp",
      
   },
   { 
@@ -24,7 +24,7 @@ let products = JSON.parse(localStorage.getItem("content"))
     Name:"God of War Ragnarok ",
     Price:"R999.00",
     description:"God of War Ragnarok (Lauch Edition) for Ps5",
-    img:"https://i.postimg.cc/pL4gcBtD/71qw-Expw-Fk-L-AC-UF1000-1000-QL80.jpg"
+    img:"https://i.postimg.cc/BZpRf30Z/ps5-gowr-ste-pksht-ft-au-rgb-220614.png"
     ,
    
    },
@@ -42,7 +42,7 @@ let products = JSON.parse(localStorage.getItem("content"))
         Name:"Call of Duty MW",
         Price:"R740.00",
         description:"Call of Duty for Ps4",
-        img:"https://i.postimg.cc/BZpRf30Z/ps5-gowr-ste-pksht-ft-au-rgb-220614.png",
+        img:"https://i.postimg.cc/0jV4YYfK/11206901-11206900.jpg",
        
     },
     { 
@@ -50,7 +50,7 @@ let products = JSON.parse(localStorage.getItem("content"))
         Name:"Mortal Kombat 11",
         Price:"R389.00",
         description:"Mortal Kombat 11 for Ps4",
-        img:"https://i.postimg.cc/Y0rVLn1w/sony-marvels-spider-man-best-ps5-games.webp",
+        img:"https://i.postimg.cc/pL4gcBtD/71qw-Expw-Fk-L-AC-UF1000-1000-QL80.jpg",
        
     },
     { 
@@ -106,7 +106,7 @@ function displayProduct() {
     </div>
     `});
   }catch(e) {
-    location.reload()
+    // location.reload()
   }
 }
 
