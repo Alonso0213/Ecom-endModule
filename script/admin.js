@@ -2,9 +2,11 @@ const addBtn = document.querySelector('#save');
 const productInput = document.querySelector('#product-Input');
 let products = JSON.parse(localStorage.getItem('content'));
 const displayElement = document.querySelector('#content');
+// For add new product
+
 function mfisher(){
   displayElement.innerHTML = "";
-  products.forEach(content => {
+  products.forEach((content, i) => {
   //  console.log(displayElement); 
   displayElement.innerHTML+=`
 <tr>
@@ -30,29 +32,29 @@ function mfisher(){
 
       <div class="input-group mb-3">
       <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
-      <input type="text" id="name${content.id}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="name${content.id}">
     </div>
     <div class="input-group mb-3">
   <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
-  <input type="text" id="description${content.id}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <input type="text"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="description${content.id}">
 </div>
 <div class="input-group mb-3">
   <span class="input-group-text" id="inputGroup-sizing-default">Price</span>
-  <input type="text" id="price${content.id}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <input type="text"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="price${content.id}">
 </div>
 <div class="input-group mb-3">
   <span class="input-group-text" id="inputGroup-sizing-default">Product img</span>
-  <input type="text" id="img${content.id}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <input type="text"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="img${content.id}">
 </div>
 </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick='new EditProduct(${JSON.stringify(content)})'>Save changes</button>
+        <button type="button" class="btn btn-primary" onclick='new EditProduct(${JSON.stringify(content)})id="update" onclick="AddData()"  '>Save changes</button>
       </div>
     </div>
   </div>
 </div></button>
-<button type="button" class="btn btn-primary" id="remove-item" onclick="">Delete</button>
+<button type="button" class="btn btn-primary" id="remove-item" onclick='deleteItems(${JSON.stringify(i)})'>Delete</button>
 </td>
 
 </tr> 
@@ -62,39 +64,6 @@ function mfisher(){
 
 }
 mfisher()
-
-addBtn.addEventListener('click', addItem);
-
-function addItem(){
-    // event.preventDefault();
-    if(products.value == ''){
-        alert('Input is Empty!')
-    } else {
-      products.push({
-            id: tempID,
-            name: productInput.value,
-            completed: false,
-            date: new Date()
-        });
-        tempID++;
-        productInput.value = '';
-        localStorage.setItem('content', JSON.stringify(content));
-        
-    }
-}
-
-  
-  function deletebtn() {
-    products = products.filter(item => {
-        return item.id !== id
-    })
-    // update localStorage
-    localStorage.setItem('content', JSON.stringify(products))
-    // Show items
-    // loadData(products)
-}
-
-
 
 function EditProduct(item) {
   this.id= item.id;
@@ -107,7 +76,6 @@ function EditProduct(item) {
     p.id == item.id;
 
   })
-
   // Update
   content[index] = Object.assign({}, this)
   localStorage.setItem('content',JSON.stringify(content));
@@ -118,3 +86,82 @@ function EditProduct(item) {
   
 }
 mfisher()
+
+
+
+
+
+
+
+
+function addData() {
+  let Name = document.querySelector('#productName');
+let description = document.querySelector('#productDescription');
+let Price = document.querySelector('#productPrice');
+let img = document.querySelector('#productImage');
+    products.push({
+    Name : Name.value,
+    description: description.value,
+    Price: Price.value,
+    img: img.value,
+  })
+  localStorage.setItem("content", JSON.stringify(products))
+  location.reload()
+  addData()
+
+}
+
+
+function deleteItems(index) {
+  products.splice(index, 1);
+  localStorage.setItem("content", JSON.stringify(products))
+  addData()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// addBtn.addEventListener('click', addItem);
+
+// function addItem(){
+//     // event.preventDefault();
+//     if(products.value == ''){
+//         alert('Input is Empty!')
+//     } else {
+//       products.push({
+//             id: tempID,
+//             name: productInput.value,
+//             completed: false,
+//             date: new Date()
+//         });
+//         tempID++;
+//         productInput.value = '';
+//         localStorage.setItem('content', JSON.stringify(content));
+        
+//     }
+// }
+
+  
+//   function deletebtn() {
+//     products = products.filter(item => {
+//         return item.id !== id
+//     })
+//     // update localStorage
+//     localStorage.setItem('content', JSON.stringify(products))
+//     // Show items
+//     // loadData(products)
+// }
