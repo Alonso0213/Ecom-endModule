@@ -62,7 +62,8 @@ color: white;
     }
     
     .card{
-        background-color: grey;
+        background-color: rgb(18, 89, 143);
+        color: white;
     }
     .sub{
         background-color: black;
@@ -100,11 +101,11 @@ color: white;
     justify-content: center;
     text-decoration: underline;
   }
-  #content img{
-    height: 10rem;
+   #content img{
+    height: 13rem;
     
   }
-  .img{
+  /*.img{
     width: 20rem;
     height: 10rem;
   }
@@ -116,7 +117,13 @@ color: white;
   .card{
 
     width: 20rem;
-  }
+  } */
   #content{
     gap: .5rem;
+  }
+  #content{
+    border: solid;
+  }
+  .bod1{
+    background-color: rgba(38, 93, 244, 0.792);
   }
