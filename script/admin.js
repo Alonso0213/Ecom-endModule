@@ -1,25 +1,22 @@
-const addBtn = document.querySelector('#save');
-const productInput = document.querySelector('#product-Input');
-let products = JSON.parse(localStorage.getItem('content'));
+let products = JSON.parse(localStorage.getItem('content'))||[];
 const displayElement = document.querySelector('#content');
 // For add new product
 
 function mfisher(){
   displayElement.innerHTML = "";
-  products.forEach((content, i) => {
-  //  console.log(displayElement); 
+  products.forEach((item, i) => {
   displayElement.innerHTML+=`
 <tr>
-<td>${content.id}  </td>
-<td> ${content.Name} </td>
-<td> ${content.description} </td>
-<td> ${content.Price} </td>
-<td><img src="${content.img}"></td>
+<td>${item.id}  </td>
+<td> ${item.Name} </td>
+<td> ${item.description} </td>
+<td> ${item.Price} </td>
+<td><img src="${item.img}"></td>
 <td><!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Edit
 </button>
-
+<button type="button" class="btn btn-primary" id="remove-item" onclick='deleteItems(${JSON.stringify(i)})'>Delete</button>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -32,29 +29,29 @@ function mfisher(){
 
       <div class="input-group mb-3">
       <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
-      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="name${content.id}">
+      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="name${item.id}">
     </div>
     <div class="input-group mb-3">
   <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
-  <input type="text"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="description${content.id}">
+  <input type="text"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="description${item.id}">
 </div>
 <div class="input-group mb-3">
   <span class="input-group-text" id="inputGroup-sizing-default">Price</span>
-  <input type="text"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="price${content.id}">
+  <input type="text"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="price${item.id}">
 </div>
 <div class="input-group mb-3">
   <span class="input-group-text" id="inputGroup-sizing-default">Product img</span>
-  <input type="text"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="img${content.id}">
+  <input type="text"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="img${item.id}">
 </div>
 </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick='new EditProduct(${JSON.stringify(content)})id="update" onclick="AddData()"  '>Save changes</button>
+        <button type="button" class="btn btn-primary" onclick='new EditProduct(${JSON.stringify(item)}) id="update">Save changes</button>
       </div>
     </div>
   </div>
 </div></button>
-<button type="button" class="btn btn-primary" id="remove-item" onclick='deleteItems(${JSON.stringify(i)})'>Delete</button>
+
 </td>
 
 </tr> 
@@ -106,7 +103,7 @@ let img = document.querySelector('#productImage');
     img: img.value,
   })
   localStorage.setItem("content", JSON.stringify(products))
-  location.reload()
+  // location.reload()
   addData()
 
 }
@@ -122,46 +119,3 @@ function deleteItems(index) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// addBtn.addEventListener('click', addItem);
-
-// function addItem(){
-//     // event.preventDefault();
-//     if(products.value == ''){
-//         alert('Input is Empty!')
-//     } else {
-//       products.push({
-//             id: tempID,
-//             name: productInput.value,
-//             completed: false,
-//             date: new Date()
-//         });
-//         tempID++;
-//         productInput.value = '';
-//         localStorage.setItem('content', JSON.stringify(content));
-        
-//     }
-// }
-
-  
-//   function deletebtn() {
-//     products = products.filter(item => {
-//         return item.id !== id
-//     })
-//     // update localStorage
-//     localStorage.setItem('content', JSON.stringify(products))
-//     // Show items
-//     // loadData(products)
-// }

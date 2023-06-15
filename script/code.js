@@ -1,4 +1,4 @@
-let content = JSON.parse(localStorage.getItem("content"))
+let products = JSON.parse(localStorage.getItem("content"))
   ? JSON.parse(localStorage.getItem("content"))
   : localStorage.setItem(
       "content",
@@ -87,46 +87,51 @@ let content = JSON.parse(localStorage.getItem("content"))
 }
 ])
 )
-
 let displayElement = document.querySelector('#content');
-content.forEach(content => {
-   console.log(displayElement); 
-   displayElement.innerHTML +=`
-   
-   <div class="card" style="width: 18rem;" >
-  <img src="${content.img}" class="card-img-top" alt="icon">
-  <div class="card-body">
-    <p class="card-text">${content.description}</p>
-    
-  </div>
-  <p class="card-text">${content.Price}</p>
-   <button type="button" class="btn btn-primary" id="save" onclick="AddData()">Buy</button>
-</div>
 
-`});
-localStorage.setItem("content",JSON.stringify(content));
-
-let display = document.querySelector('#list');
-function mfisher(){
-  display.innerHTML = "";
-  products.forEach(content => {
-  //  console.log(displayElement); 
-  display.innerHTML +=`
-  <div class="col-3">
-  <div class="card">
-  <div class="img">
-    <img src=" ${content.img}" class="card-img-top" alt="..."  >
-   </div>
-    <div class="card-body">
-      <h5 class="card-title">${content.Name}</h5>
-      <p class="card-text">${content.Price}</p>
-      <p class="card-text">${content.description}</p>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Add to cart
-    </button>
+function displayProduct() {
+  try{
+    displayElement.innerHTML = ""
+    products.forEach(item => {
+      displayElement.innerHTML +=`
+       
+       <div class="card" style="width: 18rem;" >
+      <img src="${item.img}" class="card-img-top" alt="icon">
+      <div class="card-body">
+        <p class="card-text">${item.description}</p>
+        
+      </div>
+      <p class="card-text">${item.Price}</p>
+       <button type="button" class="btn btn-primary" id="save" >Buy</button>
     </div>
-  </div>
-</div>`
-})}
-mfisher()
+    `});
+  }catch(e) {
+    location.reload()
+  }
+}
+
+displayProduct()
+// let display = document.querySelector('#list');
+// function mfisher(){
+//   display.innerHTML = "";
+//   products.forEach(content => {
+//   //  console.log(displayElement); 
+//   display.innerHTML +=`
+//   <div class="col-3">
+//   <div class="card">
+//   <div class="img">
+//     <img src=" ${content.img}" class="card-img-top" alt="..."  >
+//    </div>
+//     <div class="card-body">
+//       <h5 class="card-title">${content.Name}</h5>
+//       <p class="card-text">${content.Price}</p>
+//       <p class="card-text">${content.description}</p>
+//       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+//       Add to cart
+//     </button>
+//     </div>
+//   </div>
+// </div>`
+// })}
+// mfisher()
 
